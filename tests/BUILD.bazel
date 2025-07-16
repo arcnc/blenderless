@@ -1,5 +1,5 @@
+load("@blenderless_pip_deps//:requirements.bzl", "requirement")
 load("//build_tools:testing.bzl", "py_pytest_tests")
-load("@pip_deps//:requirements.bzl", "requirement")
 
 py_pytest_tests(
     name = "tests",
