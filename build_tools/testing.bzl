@@ -1,6 +1,6 @@
-load("//build_tools:expand_template.bzl", "expand_template")
-load("@pip_deps//:requirements.bzl", "requirement")
+load("@blenderless_pip_deps//:requirements.bzl", "requirement")
 load("@rules_python//python:defs.bzl", "py_test")
+load("//build_tools:expand_template.bzl", "expand_template")
 
 def py_pytest_tests(name, **kwargs):
     """Adds a py_test with a pytest runner.
