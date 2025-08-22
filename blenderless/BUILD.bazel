@@ -31,6 +31,7 @@ py_binary(
         "cli.py",
     ],
     main = "cli.py",
+    python_version = "3.10",
     visibility = ["//visibility:public"],
     deps = [
         ":blenderless_lib",
