@@ -3,6 +3,7 @@ load("//build_tools:testing.bzl", "py_pytest_tests")
 
 py_pytest_tests(
     name = "tests",
+    python_version = "3.10",
     size = "large",
     srcs = [
         "conftest.py",
