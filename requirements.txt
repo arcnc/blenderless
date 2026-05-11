@@ -3,7 +3,7 @@ hydra-core
 imageio
 numpy
 omegaconf
-pillow
+pillow>=12.2.0
 pytest
 scikit-image
 trimesh>=3.5.25
