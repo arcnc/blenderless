@@ -20,13 +20,22 @@ http_archive(
 
 python = use_extension("@rules_python//python/extensions:python.bzl", "python")
 python.toolchain(
-    python_version = "3.10",
+    python_version = "3.10.21",
+)
+
+python.single_version_override(
+    python_version = "3.10.21",
+    sha256 = {
+        "aarch64-unknown-linux-gnu": "686077ed8d668e3446f03f202bc3c99955d350a0db0ace5f8ce45f1b451b54b7",
+        "x86_64-unknown-linux-gnu": "807bb6746dd8b7a347fe833ee1cc2543457e5c2c98059dc454600468ee7cae7b",
+    },
+    urls = ["20260814/cpython-{python_version}+20260814-{platform}-install_only_stripped.tar.gz"],
 )
 
 pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
 pip.parse(
     hub_name = "blenderless_pip_deps",
-    python_version = "3.10",
+    python_version = "3.10.21",
     requirements_lock = "//:requirements_lock.txt",
 )
 use_repo(pip, "blenderless_pip_deps")
