@@ -1,4 +1,5 @@
 """The pytest entry point."""
+import os
 import signal
 import sys
 
@@ -13,4 +14,8 @@ if __name__ == '__main__':
 
     sys.argv = sys.argv + [{args}]  # pylint: disable=line-too-long
 
-    raise SystemExit(pytest.console_main())
+    exit_code = pytest.console_main()
+    sys.stdout.flush()
+    sys.stderr.flush()
+    # bpy's static C++ destructors can segfault at process exit, after all tests ran; skip them.
+    os._exit(exit_code)

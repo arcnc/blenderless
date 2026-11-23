@@ -1,5 +1,7 @@
 import logging
+import os
 import pathlib
+import sys
 
 import click
 
@@ -62,4 +64,13 @@ def config(config_path, output_file):
 
 
 if __name__ == '__main__':
-    main()
+    exit_code = 0
+    try:
+        main()
+    except SystemExit as exc:
+        exit_code = exc.code if isinstance(exc.code, int) else int(exc.code is not None)
+    logging.shutdown()
+    sys.stdout.flush()
+    sys.stderr.flush()
+    # bpy's static C++ destructors can segfault at process exit, after all work is done; skip them.
+    os._exit(exit_code)

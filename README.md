@@ -91,8 +91,10 @@ objects: # See blenderless.geometry and blenderless.material
 
 ## Install
 
-Make sure to have installed a recent Bazel >= 5.2 and Python3.10.
-Bazel will internally search for `python3.10` executable.
+Make sure to have installed a recent Bazel (Bzlmod). Bazel downloads a hermetic Python 3.11 and the official
+[`bpy`](https://pypi.org/project/bpy/) wheel (Blender 4.5 LTS), which is available for Linux x86_64 and macOS arm64.
+Each Blender release supports exactly one Python minor version, so bump `bpy` and the Python toolchain in
+`MODULE.bazel` together.
 
 ### Testing
 
