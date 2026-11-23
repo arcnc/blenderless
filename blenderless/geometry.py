@@ -159,7 +159,7 @@ class BlenderLabel(Geometry):
     label_value: str = ''
     size: float = 1.0
     outline_size: float = 0.0
-    outline_material: Material = MaterialFromName(material_name='Material')
+    outline_material: Material = field(default_factory=lambda: MaterialFromName(material_name='Material'))
 
     def blender_objects(self):
         objects = []

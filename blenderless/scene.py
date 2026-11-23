@@ -14,7 +14,6 @@ from blenderless.blender_object import BlenderObject
 from blenderless.camera import BlenderCamera
 from blenderless.geometry import HorizontalPlane
 from blenderless.geometry import Mesh
-from blenderless.material import load_materials
 
 
 def preload_mesh(mesh):
@@ -188,9 +187,6 @@ class Scene:
             bpy.ops.wm.open_mainfile(filepath=str((self._root_dir / self._preset_path).absolute()))
 
         blender_scene = self._load_scene()
-
-        if self._preset_path is not None:
-            load_materials(self._root_dir / self._preset_path)
 
         self._preload_meshes()
 
